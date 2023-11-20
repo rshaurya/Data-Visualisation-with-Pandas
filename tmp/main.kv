@@ -1,0 +1,111 @@
+# <IntroScreen>:
+#     BoxLayout:
+#         orientation: "vertical"
+#         VideoPlayer:
+#             source: "videos/app_logo.mp4"
+#             state: "play"
+#             options: {'eos': 'stop'}
+#             allow_strecth: True
+#             on_touch_down: 
+#                 root.manager.transition.direction = 'up'
+#                 root.manager.transition.duration = .7
+#                 root.manager.current = 'home_screen'
+
+<HomeScreen>:  
+
+    FloatLayout:
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: .6, .5
+            pos_hint: {"top": .9}
+            Image:
+                source: "images/app_logo.png"
+                fit_mode: "contain"
+
+        AboutUsButton:
+            text: "About us"
+            font_name: "fonts/ostrich-regular.ttf"
+            font_size: 75
+            size_hint: .15, .1
+            pos: 1000, 800
+
+        ContactUsButton:
+            text: "Contact us"
+            size_hint: .15, .1
+            pos: 1500, 800
+            font_name: "fonts/ostrich-regular.ttf"
+            font_size: 75
+            on_press: 
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = .7
+                root.manager.current = 'screen_two'
+
+        GetStartedButton:
+            text: "Get Started"
+            size_hint: .17, .1
+            pos: 300, 250
+            font_name: "fonts/ostrich-regular.ttf"
+            font_size: 75
+            on_press: 
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = .7
+                root.manager.current = 'main_show_screen'
+        
+# modifying buttons for rounded edges
+
+<ContactUsButton@Button>:
+    background_color: (0,0,0,0)
+	background_normal: ''
+	canvas.before:
+		Color:
+			rgba: (48/255,84/255,150/255,1)
+		RoundedRectangle:
+			size: self.size
+			pos: self.pos
+			radius: [30]
+        
+<AboutUsButton@Button>:
+    background_color: (0,0,0,0)
+	background_normal: ''
+	canvas.before:
+		Color:
+			rgba: (48/255,84/255,150/255,1)
+		RoundedRectangle:
+			size: self.size
+			pos: self.pos
+			radius: [30]
+
+<GetStartedButton@Button>:
+    background_color: (0,0,0,0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (48/255,84/255,150/255,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [20]
+
+<ScreenTwo>:
+	BoxLayout:
+        orientation: "vertical"
+		Button:
+			text: "Go to Screen 3"
+			background_color : 1, 1, 0, 1
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.transition.duration = .7
+                root.manager.current = 'home_screen'
+				
+
+<MainShowScreen>:
+    Button:
+        text: "texting"
+        on_press: 
+            root.manager.transition.direction = 'right'
+            root.manager.transition.duration = .7
+            root.manager.current = 'home_screen'
+
+
+
