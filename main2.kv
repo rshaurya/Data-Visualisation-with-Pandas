@@ -1,0 +1,142 @@
+# home screen
+
+<HomeScreen>:
+    MDFloatLayout:
+        md_bg_color: '##171717'
+
+        Image:
+            source: "images/new_logo.png"
+
+        MDRectangleFlatButton:
+            text: "GET STARTED"
+            text_color: "#0ee0e8"
+            pos_hint: {'center_x': 0.2, 'center_y': 0.5}
+            size_hint: .1, .05
+            font_size: 35
+            font_name: "fonts/Poppins-ExtraLight.ttf"
+            on_press:
+                root.manager.current = "next_screen"
+
+# Overview screen
+
+<OverviewScreen>:
+
+    MDFloatLayout:
+        md_bg_color: '##171717'
+
+        MDIconButton:
+            icon: "view-dashboard"
+            pos_hint: {'x': .05, 'y': .85}
+            icon_size: "50dp"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+
+        MDLabel:
+            text: "DASHBOARD"
+            font_size: 29
+            pos: 175, 400
+
+        MDIconButton:
+            icon: "chart-histogram"
+            pos_hint: {'x': .05, 'y': .75}
+            icon_size: "50dp"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+
+        MDLabel: 
+            text: "STATISTICS"
+            font_size: 29
+            pos: 175, 300
+
+        MDIconButton:
+            icon: "chart-timeline-variant-shimmer"
+            pos_hint: {'x': .05, 'y': .65}
+            icon_size: "50dp"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+            on_press:
+                root.manager.current = "market_screen"
+
+        MDLabel:
+            text: "MARKET"
+            font_size: 29
+            pos: 175, 200
+        
+        MDIconButton:
+            icon: "history"
+            pos_hint: {'x': .05, 'y': .55}
+            icon_size: "50dp"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+
+        MDLabel:
+            text: "HISTORY"
+            font_size: 29
+            pos: 175, 100
+
+        MDIconButton:
+            icon: "account"
+            pos_hint: {'x': .05, 'y': .45}
+            icon_size: "50dp"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+
+        MDLabel:
+            text: "ABOUT US"
+            font_size: 29
+            pos: 175, 0
+
+        MDIconButton:
+            icon: "phone"
+            pos_hint: {'x': .05, 'y': .35}
+            icon_size: "50dp"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+
+        MDLabel:
+            text: "CONTACT US"
+            font_size: 29
+            pos: 175, -100
+        
+        MDIconButton:
+            icon: "home"
+            pos_hint: {'x': .05, 'y': .25}
+            icon_size: "50dp"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+
+        MDLabel:
+            text: "HOME"
+            font_size: 29
+            pos: 175, -200
+
+# Market screen
+
+<MarketScreen>:
+    padding: 4
+    size_hint: None, None
+    size: "200dp", "100dp"
+
+    MDRelativeLayout:
+
+        MDIconButton:
+            icon: "dots-vertical"
+            pos_hint: {"top": 1, "right": 1}
+
+        MDLabel:
+            id: label
+            text: "Texting"
+            adaptive_size: True
+            color: "grey"
+            pos: "12dp", "12dp"
+            bold: True
+
+
+    # MDScreen:
+
+    #     MDBoxLayout:
+    #         id: box
+    #         adaptive_size: True
+    #         spacing: "56dp"
+    #         pos_hint: {"center_x": .5, "center_y": .5}
+
