@@ -15,7 +15,7 @@
             font_size: 35
             font_name: "fonts/Poppins-ExtraLight.ttf"
             on_press:
-                root.manager.current = "next_screen"
+                root.manager.current = "overview_screen"
 
 # Overview screen
 
@@ -122,21 +122,37 @@
         MDIconButton:
             icon: "dots-vertical"
             pos_hint: {"top": 1, "right": 1}
-
+            on_press: root.Card()
+        
         MDLabel:
             id: label
-            text: "Texting"
+            text: 'hi'
             adaptive_size: True
             color: "grey"
             pos: "12dp", "12dp"
             bold: True
 
+<MD3Card>:
 
-    # MDScreen:
+    MDRelativeLayout:
 
-    #     MDBoxLayout:
-    #         id: box
-    #         adaptive_size: True
-    #         spacing: "56dp"
-    #         pos_hint: {"center_x": .5, "center_y": .5}
+        MDIconButton:
+            icon: "dots-vertical"
+            pos_hint: {"top": 1, "right": 1}
+        
+        MDLabel:
+            id: label
+            text: 'hi'
+            adaptive_size: True
+            color: "grey"
+            pos: "12dp", "12dp"
+            bold: True
 
+    MDScreen:
+
+        MDStackLayout:
+            id: stack
+            orientation: "lr-tb"
+            spacing: [50, 30]
+            padding: [50,200,0,0]
+            pos_hint: {"center_x": .5, "center_y": .5}
