@@ -1,9 +1,14 @@
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 from kivymd.uix.button import MDIconButton
+from kivy.uix.image import Image
 
 from kivymd.app import MDApp
 from kivymd.uix.card import MDCard
+
+import matplotlib.pyplot as plt
+from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
+import pandas as pd
 
 image_list = ['symbol_images/btc.png', 'symbol_images/eth.png', 'symbol_images/ada.png', 
      'symbol_images/matic.png', 'symbol_images/doge.png', 'symbol_images/busd.png',
@@ -41,7 +46,14 @@ class MD3Card(MDCard):
         # Do something with the icon, e.g., update the card's UI based on the new icon
         print(f"Icon changed to: {value}")
 
-class Example(MDApp):
+
+    def on_button_click(self):
+        source = "crypto-dataset/Price-Data/" + self.text + ".csv"
+        df = pd.read_csv(source, index_col=0)
+        df['Open'].plot(xlabel='Date', ylabel='Volume', title="Graph of " + self.text)
+        plt.show()
+
+class Market(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Dark"
         return Builder.load_file('card.kv')
@@ -61,5 +73,4 @@ class Example(MDApp):
 
 
 
-
-Example().run()
+Market().run()
