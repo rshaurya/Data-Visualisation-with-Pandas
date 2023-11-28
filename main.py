@@ -46,4 +46,6 @@ class MainApp(MDApp):
         self.theme_cls.primary_hue = "200"
         return sm
 
-MainApp().run()
+
+if __name__ == "__main__":
+    MainApp().run()
