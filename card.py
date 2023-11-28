@@ -51,6 +51,8 @@ class MD3Card(MDCard):
         source = "crypto-dataset/Price-Data/" + self.text + ".csv"
         df = pd.read_csv(source, index_col=0)
         df['Open'].plot(xlabel='Date', ylabel='Volume', title="Graph of " + self.text)
+        figManager = plt.get_current_fig_manager()
+        figManager.full_screen_toggle()
         plt.show()
 
 class Market(MDApp):
