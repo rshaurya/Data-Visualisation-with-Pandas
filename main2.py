@@ -6,11 +6,18 @@ from kivy.uix.stacklayout import StackLayout
 
 import pandas as pd
 import matplotlib.pyplot as plt
+from kivy.core.window import Window
 
 
 
 class HomeScreen(Screen):
-    pass
+    def __init__(self, **kw):
+        return super(HomeScreen, self).__init__(**kw)
+    
+    def on_enter(self, *args):
+        Window.maximize()
+        return super(HomeScreen, self).on_enter(*args)
+    
 
 class OverviewScreen(Screen):
     pass
